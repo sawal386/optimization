@@ -182,8 +182,8 @@ def map_two_lists(list1, list2):
         1. ValueError: If the two lengths are not equal
     """
 
-    if len(list1) != len(list2):
-        raise ValueError("The lengths of the two lists must be equal")
+    if len(list1) < len(list2):
+        raise ValueError("First list size must be greater than second list size")
 
     return {list2[i]: list1[i] for i in range(len(list2))}
 

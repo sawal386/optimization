@@ -1,3 +1,5 @@
+## This file contains functions to pre-process raw CIFAR-10 data files
+
 import pickle
 import argparse
 import numpy as np
@@ -18,13 +20,17 @@ def parse_arguments():
 
 def unpickle(file):
     """
-    unpickles the cifar 10 dataset downloaded from https://www.cs.toronto.edu/~kriz/cifar.html
-    :param file: loc + name of the cifar10 file
+    unpickles the CIFAR 10 dataset downloaded from https://www.cs.toronto.edu/~kriz/cifar.html
 
-    return: dict
+    Args:
+        file: (str) loc + name of the cifar10 file
+
+    Return:
+         (dict)
     """
     with open(file, 'rb') as fo:
         dict_ = pickle.load(fo, encoding='bytes')
+
     return dict_
 
 
@@ -32,11 +38,13 @@ def extract_features_and_labels(cifar_dict, label_key, data_key):
     """
     obtains the labels and features data from the unpickled cifar10 file
 
-    :param (dict) cifar_dict: dictionary containing the cifar10 data and the labels
-    :param (str) label_key: key with which the image labels are associated to
-    :param (str) data_key: key with which the feature data are associated with
+    Args:
+        cifar_dict: (str) dictionary containing the cifar10 data and the labels
+        label_key: (str) key with which the image labels are associated to
+        data_key: (str) key with which the feature data are associated with
 
-    return: (np.ndarray)
+    Returns:
+        (np.ndarray)
     """
 
     features = cifar_dict[data_key]
