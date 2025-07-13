@@ -10,6 +10,7 @@
 
 ## Before you start 
 Make sure to install the above listed libraries 
+
 All scripts must be run from the home folder
 
 ## Figures 1 and 2
